@@ -20,6 +20,43 @@ const AboutPage = () => {
           guide you every step of the way.
         </p>
       </section>
+      {/* Features Section */}
+      <section className='py-16 px-8 bg-gray-100'>
+        <h2 className='text-3xl font-bold text-center mb-8'>
+          Why Choose SleepTracker?
+        </h2>
+        <div className='max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8'>
+          <div className='bg-white p-6 rounded-md shadow'>
+            <h3 className='text-xl font-bold mb-2'>Comprehensive Tracking</h3>
+            <p className='text-gray-600'>
+              Monitor your sleep patterns and identify areas for improvement.
+            </p>
+          </div>
+          <div className='bg-white p-6 rounded-md shadow'>
+            <h3 className='text-xl font-bold mb-2'>Personalized Insights</h3>
+            <p className='text-gray-600'>
+              Receive tailored recommendations to enhance your sleep quality.
+            </p>
+          </div>
+          <div className='bg-white p-6 rounded-md shadow'>
+            <h3 className='text-xl font-bold mb-2'>User-Friendly Design</h3>
+            <p className='text-gray-600'>
+              Enjoy an intuitive and seamless experience across all devices.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Story Section */}
+      <section className='py-16 px-8 bg-white'>
+        <h2 className='text-3xl font-bold text-center mb-8'>Our Story</h2>
+        <p className='text-gray-600 max-w-3xl mx-auto text-center'>
+          SleepTracker was created to address the growing need for better sleep
+          management tools. Our team of sleep experts and technologists
+          developed a platform that combines cutting-edge technology with
+          actionable insights. Since our launch, we’ve helped countless users
+          achieve better sleep and improve their overall health.
+        </p>
+      </section>
     </div>
   );
 };
