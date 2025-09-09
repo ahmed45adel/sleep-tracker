@@ -10,6 +10,16 @@ const AboutPage = () => {
           Your ultimate companion for tracking sleep and improving your health.
         </p>
       </section>
+      {/* Mission Section */}
+      <section className='py-16 px-8 bg-white'>
+        <h2 className='text-3xl font-bold text-center mb-8'>Our Mission</h2>
+        <p className='text-gray-600 max-w-3xl mx-auto text-center'>
+          At SleepTracker, we aim to help individuals achieve better sleep and
+          overall well-being by providing insights into their sleep patterns.
+          Better sleep leads to a healthier, happier life, and we’re here to
+          guide you every step of the way.
+        </p>
+      </section>
     </div>
   );
 };
