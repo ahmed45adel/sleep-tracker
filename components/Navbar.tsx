@@ -1,10 +1,9 @@
-import { UserButton } from '@clerk/nextjs';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { checkUser } from '@/lib/checkUser';
 
 export default async function Navbar() {
   const user = await checkUser();
-  console.log('Current User:', user);
 
   return (
     <nav>
@@ -32,10 +31,16 @@ export default async function Navbar() {
             >
               About
             </Link>
+            <SignedOut>
+              <SignInButton>
                 <button className='w-full sm:w-auto bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white sm:px-4 sm:py-2 px-3 py-1 text-sm sm:text-md rounded-md font-medium cursor-pointer'>
                   Sign In
                 </button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
               <UserButton />
+            </SignedIn>
           </div>
         </div>
       </div>
