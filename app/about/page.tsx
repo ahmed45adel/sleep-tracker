@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const AboutPage = () => {
   return (
     <div className='font-sans bg-gray-100 text-gray-800'>
@@ -10,6 +12,7 @@ const AboutPage = () => {
           Your ultimate companion for tracking sleep and improving your health.
         </p>
       </section>
+
       {/* Mission Section */}
       <section className='py-16 px-8 bg-white'>
         <h2 className='text-3xl font-bold text-center mb-8'>Our Mission</h2>
@@ -20,6 +23,7 @@ const AboutPage = () => {
           guide you every step of the way.
         </p>
       </section>
+
       {/* Features Section */}
       <section className='py-16 px-8 bg-gray-100'>
         <h2 className='text-3xl font-bold text-center mb-8'>
@@ -46,6 +50,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
       {/* Story Section */}
       <section className='py-16 px-8 bg-white'>
         <h2 className='text-3xl font-bold text-center mb-8'>Our Story</h2>
@@ -56,6 +61,23 @@ const AboutPage = () => {
           actionable insights. Since our launch, we’ve helped countless users
           achieve better sleep and improve their overall health.
         </p>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className='py-16 px-8 bg-gray-100 text-center'>
+        <h2 className='text-3xl font-bold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
+          Ready to Sleep Better?
+        </h2>
+        <p className='text-lg mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
+          Join SleepTracker today and take the first step towards better sleep
+          and a healthier life.
+        </p>
+        <Link
+          href='/sign-up'
+          className='inline-block bg-white text-purple-600 hover:text-purple-700 px-6 py-3 rounded-md font-medium shadow-md transition'
+        >
+          Get Started
+        </Link>
       </section>
     </div>
   );
