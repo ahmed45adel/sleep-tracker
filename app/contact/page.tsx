@@ -13,6 +13,7 @@ const ContactPage = () => {
         </p>
       </section>
 
+      {/* Contact Form Section */}
       <section className='py-16 px-8 bg-white'>
         <h2 className='text-3xl font-bold text-center mb-8'>Get in Touch</h2>
         <form
@@ -85,6 +86,29 @@ const ContactPage = () => {
             Send Message
           </button>
         </form>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className='py-16 px-8 bg-gray-100'>
+        <h2 className='text-3xl font-bold text-center mb-8'>
+          Contact Information
+        </h2>
+        <div className='max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
+          <div>
+            <h3 className='text-xl font-bold mb-2'>Email</h3>
+            <p className='text-gray-600'>fakesupport@sleeptracker.com</p>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold mb-2'>Phone</h3>
+            <p className='text-gray-600'>(+20)1011231746</p>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold mb-2'>Address</h3>
+            <p className='text-gray-600'>
+              Alexandria, Egypt
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   );
