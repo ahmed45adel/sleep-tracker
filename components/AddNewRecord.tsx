@@ -5,9 +5,11 @@ import addSleepRecord from '@/app/actions/addSleepRecord';
 const AddRecord = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [amount, setAmount] = useState(6);
+  const [isLoading, setIsLoading] = useState(false);
   const [sleepQuality, setSleepQuality] = useState('');
 
   const clientAction = async (formData: FormData) => {
+    setIsLoading(true);
     formData.set('amount', amount.toString());
     formData.set('text', sleepQuality);
 
@@ -20,6 +22,7 @@ const AddRecord = () => {
       setAmount(6);
       setSleepQuality('');
     }
+    setIsLoading(false);
   };
 
   return (
@@ -59,6 +62,10 @@ const AddRecord = () => {
                   Sleep quality...
                 </option>
                 <option value='Refreshed'>Refreshed</option>
+                <option value='Tired'>Tired</option>
+                <option value='Neutral'>Neutral</option>
+                <option value='Exhausted'>Exhausted</option>
+                <option value='Energetic'>Energetic</option>
               </select>
             </div>
 
@@ -85,8 +92,32 @@ const AddRecord = () => {
           <button
             type='submit'
             className='w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-4 py-2 rounded-md font-medium shadow-md transition flex items-center justify-center cursor-pointer'
+            disabled={isLoading}
           >
-              Add Sleep Record
+            {isLoading ? (
+              <svg
+                className='animate-spin h-5 w-5 text-white'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <circle
+                  className='opacity-25'
+                  cx='12'
+                  cy='12'
+                  r='10'
+                  stroke='currentColor'
+                  strokeWidth='4'
+                ></circle>
+                <path
+                  className='opacity-75'
+                  fill='currentColor'
+                  d='M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z'
+                ></path>
+              </svg>
+            ) : (
+              'Add Sleep Record'
+            )}
           </button>
         </form>
       </div>
