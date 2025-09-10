@@ -88,6 +88,32 @@ const AddRecord = () => {
               />
             </div>
           </div>
+          
+          {/* Hours Slept */}
+          <div>
+            <label
+              htmlFor='amount'
+              className='block text-sm font-medium text-gray-700 mb-2'
+            >
+              Hours Slept
+              <br />
+              <span className='text-xs text-gray-500'>
+                (Select between 0 and 12 in steps of 0.5)
+              </span>
+            </label>
+            <input
+              type='range'
+              name='amount'
+              id='amount'
+              min='0'
+              max='12'
+              step='0.5'
+              value={amount}
+              onChange={(e) => setAmount(parseFloat(e.target.value))}
+              className='w-full cursor-pointer'
+            />
+            <div className='text-center text-gray-700 mt-2'>{amount} hours</div>
+          </div>
           {/* Submit Button */}
           <button
             type='submit'
