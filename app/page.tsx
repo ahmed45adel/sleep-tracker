@@ -1,4 +1,5 @@
 import Guest from '@/components/Guest';
+import RecordChart from '@/components/RecordChart';
 import { currentUser } from '@clerk/nextjs/server';
 
 export default async function HomePage() {
@@ -38,7 +39,7 @@ export default async function HomePage() {
             </div>
             </div>
           </div>
-          {/* Placeholder for AddSleepRecord */}
+          <RecordChart />
         </div>
       {/* Placeholder for SleepHistory */}
     </main>
