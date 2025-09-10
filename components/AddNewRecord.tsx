@@ -5,23 +5,31 @@ import addSleepRecord from '@/app/actions/addSleepRecord';
 const AddRecord = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [amount, setAmount] = useState(6);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [sleepQuality, setSleepQuality] = useState('');
 
   const clientAction = async (formData: FormData) => {
     setIsLoading(true);
+    setAlertMessage(null);
+
     formData.set('amount', amount.toString());
     formData.set('text', sleepQuality);
 
     const { error } = await addSleepRecord(formData);
 
     if (error) {
-      console.log(error)
+      setAlertMessage(`Error: ${error}`);
+      setAlertType('error');
     } else {
+      setAlertMessage('Sleep record added successfully!');
+      setAlertType('success');
       formRef.current?.reset();
       setAmount(6);
       setSleepQuality('');
     }
+
     setIsLoading(false);
   };
 
@@ -88,7 +96,7 @@ const AddRecord = () => {
               />
             </div>
           </div>
-          
+
           {/* Hours Slept */}
           <div>
             <label
@@ -114,6 +122,7 @@ const AddRecord = () => {
             />
             <div className='text-center text-gray-700 mt-2'>{amount} hours</div>
           </div>
+
           {/* Submit Button */}
           <button
             type='submit'
@@ -146,6 +155,19 @@ const AddRecord = () => {
             )}
           </button>
         </form>
+
+        {/* Alert Message */}
+        {alertMessage && (
+          <div
+            className={`mt-4 p-3 rounded-md text-sm ${
+              alertType === 'success'
+                ? 'bg-green-100 text-green-800 border border-green-300'
+                : 'bg-red-100 text-red-800 border border-red-300'
+            }`}
+          >
+            {alertMessage}
+          </div>
+        )}
       </div>
     </div>
   );
