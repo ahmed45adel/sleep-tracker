@@ -34,6 +34,39 @@ const Guest = () => {
       {/* Divider */}
       <div className='h-1 bg-gray-300'></div>
 
+      {/* Frequently Asked Questions Section */}
+      <div className='py-16 px-8 bg-white'>
+        <h2 className='text-2xl md:text-3xl font-bold text-center mb-8'>
+          Frequently Asked Questions
+        </h2>
+        <div className='max-w-3xl mx-auto space-y-8'>
+          <div>
+            <h3 className='text-xl font-bold'>What is SleepTracker?</h3>
+            <p className='text-gray-600'>
+              SleepTracker is a powerful tool designed to help you monitor your
+              sleep patterns and improve your overall health.
+            </p>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold'>How does it work?</h3>
+            <p className='text-gray-600'>
+              SleepTracker analyzes your sleep data and provides personalized
+              insights to help you achieve better sleep.
+            </p>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold'>Is SleepTracker free?</h3>
+            <p className='text-gray-600'>
+              Yes, SleepTracker offers a free plan with basic features. Premium
+              plans are available for advanced insights and analytics.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className='h-1 bg-gray-300'></div>
+
       {/* Testimonials Section */}
       <div className='py-16 px-8 bg-gray-100'>
         <h2 className='text-2xl md:text-3xl font-bold text-center mb-8'>
