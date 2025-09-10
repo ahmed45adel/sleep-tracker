@@ -49,7 +49,32 @@ async function addSleepRecord(formData: FormData): Promise<RecordResult> {
   }
 
   try {
-    const recordData: RecordData;
+    // Check if a record with the same date already exists
+    const existingRecord = await db.record.findFirst({
+      where: {
+        userId,
+        date: date, // Match the date
+      },
+    });
+
+    let recordData: RecordData;
+
+    if (existingRecord) {
+      // Update the existing record
+      const updatedRecord = await db.record.update({
+        where: { id: existingRecord.id },
+        data: {
+          text,
+          amount,
+        },
+      });
+
+      recordData = {
+        text: updatedRecord.text,
+        amount: updatedRecord.amount,
+        date: updatedRecord.date?.toISOString() || date,
+      };
+    } else {
       // Create a new record
       const createdRecord = await db.record.create({
         data: {
@@ -59,18 +84,19 @@ async function addSleepRecord(formData: FormData): Promise<RecordResult> {
           userId,
         },
       });
+
       recordData = {
         text: createdRecord.text,
         amount: createdRecord.amount,
         date: createdRecord.date?.toISOString() || date,
       };
-    
+    }
 
     revalidatePath('/');
 
     return { data: recordData };
   } catch (error) {
-    console.error('Error adding sleep record:', error); // Log the error
+    console.error('Error adding sleep record:', error);
     return {
       error: 'An unexpected error occurred while adding the sleep record.',
     };
