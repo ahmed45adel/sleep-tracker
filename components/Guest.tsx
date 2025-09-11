@@ -27,6 +27,7 @@ const Guest = () => {
             width={600}
             height={400}
             className='w-full md:max-w-md rounded-tl-3xl rounded-br-3xl shadow-lg'
+            priority={true}
           />
         </div>
       </div>
@@ -90,7 +91,7 @@ const Guest = () => {
           <div className='bg-white p-6 rounded-md shadow'>
             <p className='text-gray-700 mb-4'>
               &quot;SleepTracker is so easy to use and provides accurate data.
-              It&#39;s a must-have for anyone looking to improve their
+              It is a must-have for anyone looking to improve their
               sleep!&quot;
             </p>
             <p className='text-purple-500 font-bold'>- Emily R.</p>

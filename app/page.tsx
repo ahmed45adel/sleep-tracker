@@ -1,9 +1,11 @@
+import AddNewRecord from '@/components/AddNewRecord';
 import AverageSleep from '@/components/AverageSleep';
 import BestWorstSleep from '@/components/BestWorstSleep';
 import Guest from '@/components/Guest';
 import RecordChart from '@/components/RecordChart';
 import RecordHistory from '@/components/RecordHistory';
 import { currentUser } from '@clerk/nextjs/server';
+import Image from 'next/image';
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -16,13 +18,21 @@ export default async function HomePage() {
         {/* Left Column */}
         <div className='space-y-6'>
           <div className='bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start gap-6'>
+            {/* User Image */}
+            <Image
+              src={user.imageUrl}
+              alt={`${user.firstName}'s profile`}
+              width={96}
+              height={96}
+              className="rounded-full border border-gray-300 shadow-md"
+            />
             {/* User Details */}
             <div className='flex-1'>
               <h2 className='text-2xl md:text-3xl font-bold text-purple-600 mb-2'>
                 Welcome Back, {user.firstName} 👋
               </h2>
               <p className='text-gray-600 mb-4'>
-                Here&#39;s a quick overview of your recent sleep activity. Stay
+                Here is a quick overview of your recent sleep activity. Stay
                 on top of your data insights and manage your tasks efficiently!
               </p>
               <div className='space-y-2'>
@@ -40,13 +50,22 @@ export default async function HomePage() {
                 </p>
               </div>
             </div>
-            </div>
           </div>
+          {/* AddSleepRecord */}
+          <AddNewRecord />
+        </div>
+
+        {/* Right Column */}
+        <div className='space-y-6'>
           <RecordChart />
           <AverageSleep />
           <BestWorstSleep />
         </div>
-      <RecordHistory />
+      </div>
+      {/* SleepHistory */}
+      <div className='max-w-7xl mx-auto'>
+        <RecordHistory />
+      </div>
     </main>
   );
 }
