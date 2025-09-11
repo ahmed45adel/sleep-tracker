@@ -1,3 +1,4 @@
+import AverageSleep from '@/components/AverageSleep';
 import Guest from '@/components/Guest';
 import RecordChart from '@/components/RecordChart';
 import { currentUser } from '@clerk/nextjs/server';
@@ -40,6 +41,7 @@ export default async function HomePage() {
             </div>
           </div>
           <RecordChart />
+          <AverageSleep />
         </div>
       {/* Placeholder for SleepHistory */}
     </main>
