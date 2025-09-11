@@ -1,7 +1,15 @@
 import getRecords from '@/app/actions/getRecords';
 
 const RecordHistory = async () => {
-  const { records } = await getRecords();
+  const { records, error } = await getRecords();
+
+  if (error) {
+    return (
+      <div className='bg-red-100 text-red-800 border border-red-300 rounded-md p-4 text-center'>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   if (!records || records.length === 0) {
     return (
