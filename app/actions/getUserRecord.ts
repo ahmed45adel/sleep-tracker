@@ -27,7 +27,7 @@ async function getUserRecord(): Promise<{
 
     return { record, daysWithRecords };
   } catch (error) {
-    console.error('Error fetching user record:', error); // Log the error
+    console.error('Error fetching user record:', error);
     return { error: 'Database error' };
   }
 }
