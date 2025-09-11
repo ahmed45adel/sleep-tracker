@@ -5,14 +5,15 @@ const AverageSleep = async () => {
   try {
     const { record, daysWithRecords } = await getUserRecord();
 
-    const validRecord = record;
+    const validRecord = record ?? 0;
     const validDays =
       daysWithRecords && (daysWithRecords > 0) ? daysWithRecords : 1; // Fallback to 1 to avoid division by 0
 
     const averageSleep = validRecord / validDays;
 
-    // Extract hours
+    // Extract hours and minutes
     const hours = Math.floor(averageSleep);
+    const minutes = Math.round((averageSleep - hours) * 60);
 
     return (
       <div className='bg-gray-100 flex items-center justify-center'>
@@ -21,7 +22,7 @@ const AverageSleep = async () => {
             Your Average Sleep Last Month
           </h4>
           <h1 className='sm:text-3xl text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-            {hours} hours
+            {hours} hours {minutes} minutes
           </h1>
         </div>
       </div>
