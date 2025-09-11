@@ -37,6 +37,8 @@ export default function Navbar() {
               Contact
             </Link>
 
+            <ThemeToggle />
+
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="w-full sm:w-auto bg-gradient-to-r from-primary via-pink-500 to-red-500 hover:from-primary/90 hover:via-pink-600 hover:to-red-600 text-primary-foreground sm:px-4 sm:py-2 px-3 py-1 text-sm sm:text-md rounded-md font-medium cursor-pointer transition">
@@ -46,7 +48,6 @@ export default function Navbar() {
             </SignedOut>
 
             <SignedIn>
-              <ThemeToggle />
               <UserButton />
             </SignedIn>
           </div>
