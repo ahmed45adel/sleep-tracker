@@ -20,7 +20,12 @@ async function getUserRecord(): Promise<{
 
     const record = records.reduce((sum, record) => sum + record.amount, 0);
 
-    return { record };
+    // Count the number of days with valid sleep records
+    const daysWithRecords = records.filter(
+      (record) => record.amount > 0
+    ).length;
+
+    return { record, daysWithRecords };
   } catch (error) {
     console.error('Error fetching user record:', error); // Log the error
     return { error: 'Database error' };
