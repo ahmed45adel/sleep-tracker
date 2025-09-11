@@ -2,6 +2,7 @@ import AverageSleep from '@/components/AverageSleep';
 import BestWorstSleep from '@/components/BestWorstSleep';
 import Guest from '@/components/Guest';
 import RecordChart from '@/components/RecordChart';
+import RecordHistory from '@/components/RecordHistory';
 import { currentUser } from '@clerk/nextjs/server';
 
 export default async function HomePage() {
@@ -45,7 +46,7 @@ export default async function HomePage() {
           <AverageSleep />
           <BestWorstSleep />
         </div>
-      {/* Placeholder for SleepHistory */}
+      <RecordHistory />
     </main>
   );
 }
