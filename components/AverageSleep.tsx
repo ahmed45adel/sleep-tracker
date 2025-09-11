@@ -7,7 +7,7 @@ const AverageSleep = async () => {
 
     const validRecord = record ?? 0;
     const validDays =
-      daysWithRecords && (daysWithRecords > 0) ? daysWithRecords : 1; // Fallback to 1 to avoid division by 0
+      daysWithRecords && daysWithRecords > 0 ? daysWithRecords : 1; // Fallback to 1 to avoid division by 0
 
     const averageSleep = validRecord / validDays;
 
@@ -16,12 +16,12 @@ const AverageSleep = async () => {
     const minutes = Math.round((averageSleep - hours) * 60);
 
     return (
-      <div className='bg-gray-100 flex items-center justify-center'>
-        <div className='bg-white shadow-lg rounded-lg p-8 w-full text-center'>
-          <h4 className='text-lg font-medium text-gray-600 mb-2'>
+      <div className="bg-muted flex items-center justify-center">
+        <div className="bg-background shadow-lg rounded-lg p-8 w-full text-center">
+          <h4 className="text-lg font-medium text-muted-foreground mb-2">
             Your Average Sleep Last Month
           </h4>
-          <h1 className='sm:text-3xl text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
+          <h1 className="sm:text-3xl text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
             {hours} hours {minutes} minutes
           </h1>
         </div>
@@ -30,10 +30,12 @@ const AverageSleep = async () => {
   } catch (error) {
     console.error('Error fetching user record:', error);
     return (
-      <div className='bg-gray-100 flex items-center justify-center min-h-screen'>
-        <div className='bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center'>
-          <h4 className='text-lg font-medium text-gray-600 mb-2'>Error</h4>
-          <p className='text-red-600'>Unable to calculate average sleep.</p>
+      <div className="bg-muted flex items-center justify-center min-h-screen">
+        <div className="bg-background shadow-lg rounded-lg p-8 w-full max-w-md text-center">
+          <h4 className="text-lg font-medium text-muted-foreground mb-2">Error</h4>
+          <p className="text-red-600 dark:text-red-400">
+            Unable to calculate average sleep.
+          </p>
         </div>
       </div>
     );
