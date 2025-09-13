@@ -42,4 +42,4 @@ NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL
 - [Clerk docs](https://clerk.com/docs/quickstarts/nextjs)
 
 ## Deployment
-- placeholder
+- [Vercel](https://sleep-tracker-woad.vercel.app/)
